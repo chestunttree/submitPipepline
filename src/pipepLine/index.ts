@@ -37,7 +37,7 @@ export class PipepLine {
       return i;
     });
     line.splice(newIndex, 0, _target);
-    this.units = line.filter<PipepUnit>(i => !!i);
+    this.units = line.filter<PipepUnit>((i): i is PipepUnit => Boolean(i));
   }
   afterEach() {
     console.log('after each');
