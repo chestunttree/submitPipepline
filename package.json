@@ -28,13 +28,16 @@
       }
     ]
   },
+  "workspaces": ["packages/*"],
   "scripts": {
+    "build": "npm --prefix ./packages/pipe-line-operation run build && ",
     "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "operation:dev": "npm --prefix ./packages/pipe-line-operation run dev"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",

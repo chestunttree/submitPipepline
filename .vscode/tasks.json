@@ -15,6 +15,29 @@
 				"kind": "build",
 				"isDefault": true
 			}
-		}
+		},
+		{
+			"label": "Start My React App",
+			"type": "shell",
+			"command": "npm run dev --prefix ./packages/pipe-line-operation",
+			"isBackground": true, 
+			"presentation": {
+				 "reveal": "always",
+				 "panel": "dedicated"
+			},
+			"problemMatcher": {
+					"owner": "custom",
+					"pattern": {
+							"regexp": "^(.*)$",
+							"severity": 1,
+							"message": 4
+					},
+					"background": {
+							"activeOnStart": true,
+							"beginsPattern": "\\s*(.*?)\\s*Compiled successfully!(.*?)\\s*", 
+							"endsPattern": "\\s*(.*?)\\s*Compiled successfully!(.*?)\\s*" 
+					}
+			}
+	}
 	]
 }
