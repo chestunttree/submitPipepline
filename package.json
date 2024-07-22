@@ -28,12 +28,15 @@
       }
     ]
   },
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "npm --prefix ./packages/pipe-line-operation run build && ",
-    "vscode:prepublish": "yarn run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "yarn run package",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile": "webpack",
+    "watch": "webpack --watch",
     "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
     "test": "vscode-test",
@@ -42,16 +45,20 @@
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
-    "@types/vscode": "^1.90.0",
+    "@types/vscode": "^1.54.0",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "@vscode/test-cli": "^0.0.6",
     "@vscode/test-electron": "^2.3.9",
     "eslint": "^8.56.0",
-    "typescript": "^5.3.3"
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "@types/lodash-es": "^4.17.12",
+    "copy-webpack-plugin": "^12.0.2",
     "lodash-es": "^4.17.21"
   }
 }
